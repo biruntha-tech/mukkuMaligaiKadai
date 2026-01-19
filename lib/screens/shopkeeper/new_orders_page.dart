@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'services/order_service.dart';
-import 'models/order_model.dart';
+import '../../services/order_service.dart';
+import '../../models/order_model.dart';
 import 'order_details_page.dart';
 
 class NewOrdersPage extends StatefulWidget {
@@ -12,9 +12,9 @@ class NewOrdersPage extends StatefulWidget {
 }
 
 class _NewOrdersPageState extends State<NewOrdersPage> {
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class _NewOrdersPageState extends State<NewOrdersPage> {
                     return const Column(
                       children: [
                         SizedBox(height: 10),
-                        Icon(Icons.keyboard_arrow_down, size: 50, color: Color(0xFF00A352)),
+                        Icon(Icons.keyboard_arrow_down, size: 50, color: Colors.white),
                         SizedBox(height: 20),
                       ],
                     );

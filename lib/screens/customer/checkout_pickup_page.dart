@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'services/cart_service.dart';
-import 'services/order_service.dart';
-import 'models/order_model.dart';
+import '../../services/cart_service.dart';
+import '../../services/order_service.dart';
+import '../../models/order_model.dart';
 
-import 'main_navigation.dart';
+import '../shared/main_navigation.dart';
 
 class CheckoutPickupPage extends StatefulWidget {
   const CheckoutPickupPage({super.key});

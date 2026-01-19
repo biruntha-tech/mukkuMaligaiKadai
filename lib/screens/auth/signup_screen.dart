@@ -15,9 +15,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final _phoneController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   void _handleSignUp() {
     if (_formKey.currentState!.validate()) {
@@ -47,7 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: GoogleFonts.outfit(
                     fontSize: 48,
                     fontWeight: FontWeight.w600,
-                    color: const Color(0xFF007A3D),
+                    color: Colors.white,
                     letterSpacing: -1,
                   ),
                 ),
@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: _handleSignUp,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: brandColor,
-                    foregroundColor: const Color(0xFF007A3D),
+                    foregroundColor: const Color(0xFF6B584F),
                     minimumSize: const Size(double.infinity, 65),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(35),
@@ -90,7 +90,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       child: Text(
                         "Sign in",
                         style: TextStyle(
-                          color: const Color(0xFF007A3D),
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -136,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           keyboardType: keyboardType,
           style: GoogleFonts.outfit(fontSize: 18),
           decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: const Color(0xFF007A3D), size: 22),
+            prefixIcon: Icon(icon, color: Colors.white, size: 22),
             filled: true,
             fillColor: cardColor,
             border: OutlineInputBorder(

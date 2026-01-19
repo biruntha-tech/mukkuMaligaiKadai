@@ -13,14 +13,14 @@ class CustomBottomNavBar extends StatelessWidget {
     this.role = 'shopkeeper',
   });
 
-  static const Color brandColor = Color(0xFF00FF80);
+  static const Color brandColor = Colors.white;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 80,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color(0xFFCDB7A6),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.05),
@@ -102,7 +102,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 ),
                 child: Icon(
                   isActive ? activeIcon : inactiveIcon,
-                  color: isActive ? const Color(0xFF00A352) : Colors.grey[600],
+                  color: isActive ? Colors.white : Colors.grey[600],
                   size: 26,
                 ),
               ),
@@ -112,7 +112,7 @@ class CustomBottomNavBar extends StatelessWidget {
                 style: GoogleFonts.outfit(
                   fontSize: 10,
                   fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
-                  color: isActive ? const Color(0xFF00A352) : Colors.grey[600],
+                  color: isActive ? Colors.white : Colors.grey[600],
                 ),
               ),
             ],

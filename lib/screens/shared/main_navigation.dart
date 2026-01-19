@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'shopkeeper_dashboard.dart';
-import 'products_page.dart';
-import 'orders_page.dart';
+import '../shopkeeper/shopkeeper_dashboard.dart';
+import '../shopkeeper/products_page.dart';
+import '../shopkeeper/orders_page.dart';
 import 'account_page.dart';
-import 'home_page.dart';
-import 'customer_products_page.dart';
-import 'orders_list_page.dart';
-import 'customer_cart_page.dart';
-import 'customer_orders_page.dart';
-import 'manager/manager_dashboard.dart';
-import 'manager/manager_shops_page.dart';
-import 'manager/manager_orders_page.dart';
-import 'manager/manager_revenue_page.dart';
-import 'manager/manager_users_page.dart';
-import 'widgets/custom_bottom_nav.dart';
+import '../customer/home_page.dart';
+import '../customer/customer_products_page.dart';
+import '../shopkeeper/orders_list_page.dart';
+import '../customer/customer_cart_page.dart';
+import '../customer/customer_orders_page.dart';
+import '../manager/manager_dashboard.dart';
+import '../manager/manager_shops_page.dart';
+import '../manager/manager_orders_page.dart';
+import '../manager/manager_revenue_page.dart';
+import '../manager/manager_users_page.dart';
+import '../../widgets/custom_bottom_nav.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   final int initialIndex;
@@ -86,7 +86,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFCDB7A6),
       body: IndexedStack(
         index: _selectedIndex,
         children: _pages,

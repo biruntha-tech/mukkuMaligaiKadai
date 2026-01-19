@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../account_page.dart';
+import '../shared/account_page.dart';
 
 class ManagerShopsPage extends StatelessWidget {
   const ManagerShopsPage({super.key});

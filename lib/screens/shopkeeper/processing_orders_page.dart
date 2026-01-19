@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'services/order_service.dart';
+import '../../services/order_service.dart';
 
 class ProcessingOrdersPage extends StatefulWidget {
   const ProcessingOrdersPage({super.key});
@@ -10,9 +10,9 @@ class ProcessingOrdersPage extends StatefulWidget {
 }
 
 class _ProcessingOrdersPageState extends State<ProcessingOrdersPage> {
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class _ProcessingOrdersPageState extends State<ProcessingOrdersPage> {
                         return const Column(
                           children: [
                             SizedBox(height: 10),
-                            Icon(Icons.keyboard_arrow_down, size: 40, color: Color(0xFF00A352)),
+                            Icon(Icons.keyboard_arrow_down, size: 40, color: Color(0xFF6B584F)),
                           ],
                         );
                       }
@@ -148,7 +148,7 @@ class _ProcessingOrdersPageState extends State<ProcessingOrdersPage> {
           width: 25,
           height: 25,
           decoration: BoxDecoration(
-            color: isActive ? const Color(0xFF00A352) : Colors.grey[300],
+            color: isActive ? Colors.white : Colors.grey[300],
             shape: BoxShape.circle,
             border: Border.all(color: brandColor.withOpacity(0.1), width: 5),
           ),
@@ -160,7 +160,7 @@ class _ProcessingOrdersPageState extends State<ProcessingOrdersPage> {
           style: GoogleFonts.outfit(
             fontSize: 10,
             fontWeight: FontWeight.bold,
-            color: isActive ? const Color(0xFF00A352) : Colors.grey[600],
+            color: isActive ? Colors.white : Colors.grey[600],
           ),
         ),
       ],
@@ -172,7 +172,7 @@ class _ProcessingOrdersPageState extends State<ProcessingOrdersPage> {
       child: Container(
         height: 6,
         margin: const EdgeInsets.only(bottom: 25),
-        color: isActive ? const Color(0xFF00A352) : Colors.grey[300],
+        color: isActive ? Colors.white : Colors.grey[300],
       ),
     );
   }

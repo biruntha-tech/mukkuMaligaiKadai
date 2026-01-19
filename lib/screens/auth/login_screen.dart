@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'main_navigation.dart';
+import '../shared/main_navigation.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -16,9 +16,9 @@ class _LoginScreenState extends State<LoginScreen> {
   final _passwordController = TextEditingController();
   String _selectedRole = 'customer';
 
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   void _handleLogin() {
     if (_formKey.currentState!.validate()) {
@@ -47,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: GoogleFonts.outfit(
                     fontSize: 56,
                     fontWeight: FontWeight.w600,
-                    color: const Color(0xFF007A3D),
+                    color: Colors.white,
                     letterSpacing: -1,
                   ),
                 ),
@@ -183,7 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: GoogleFonts.outfit(
                           fontSize: 18,
                           fontWeight: FontWeight.w400,
-                          color: const Color(0xFF007A3D),
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -194,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: _handleLogin,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: brandColor,
-                    foregroundColor: const Color(0xFF007A3D),
+                    foregroundColor: const Color(0xFF6B584F),
                     minimumSize: const Size(double.infinity, 65),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(35),
@@ -235,7 +235,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: const Text(
                         "Sign up",
                         style: TextStyle(
-                          color: Color(0xFF007A3D),
+                          color: Color(0xFF6B584F),
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -270,7 +270,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Icon(
               icon,
               size: 40,
-              color: isSelected ? const Color(0xFF007A3D) : Colors.black54,
+              color: isSelected ? Colors.white : Colors.black54,
             ),
           ),
           const SizedBox(height: 8),
@@ -280,7 +280,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Radio<String>(
                 value: value,
                 groupValue: _selectedRole,
-                activeColor: const Color(0xFF007A3D),
+                activeColor: Colors.white,
                 onChanged: (val) => setState(() => _selectedRole = val!),
                 materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 visualDensity: VisualDensity.compact,
@@ -290,7 +290,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: GoogleFonts.outfit(
                   fontSize: 14,
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-                  color: isSelected ? const Color(0xFF007A3D) : Colors.black54,
+                  color: isSelected ? Colors.white : Colors.black54,
                 ),
               ),
             ],

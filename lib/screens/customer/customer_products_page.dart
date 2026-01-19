@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'services/product_service.dart';
-import 'models/product.dart';
+import '../../services/product_service.dart';
+import '../../models/product.dart';
 import 'dart:io';
 import 'product_details_page.dart';
-import 'services/cart_service.dart';
+import '../../services/cart_service.dart';
 
 class CustomerProductsPage extends StatefulWidget {
   const CustomerProductsPage({super.key});

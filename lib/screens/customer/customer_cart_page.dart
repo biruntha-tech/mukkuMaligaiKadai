@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'services/cart_service.dart';
+import '../../services/cart_service.dart';
 import 'dart:io';
 import 'checkout_pickup_page.dart';
 

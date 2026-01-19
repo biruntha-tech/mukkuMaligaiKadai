@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'services/product_service.dart';
-import 'models/product.dart';
-import 'services/notification_service.dart';
+import '../../services/product_service.dart';
+import '../../models/product.dart';
+import '../../services/notification_service.dart';
 
 class ManageStocksPage extends StatefulWidget {
   const ManageStocksPage({super.key});
@@ -12,9 +12,9 @@ class ManageStocksPage extends StatefulWidget {
 }
 
 class _ManageStocksPageState extends State<ManageStocksPage> {
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +144,7 @@ class _ManageStocksPageState extends State<ManageStocksPage> {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Restock request sent for ${product.name.replaceAll('\n', ' ')}'),
-                  backgroundColor: const Color(0xFF007A3D),
+                  backgroundColor: Colors.white,
                   duration: const Duration(seconds: 2),
                 ),
               );
@@ -163,7 +163,7 @@ class _ManageStocksPageState extends State<ManageStocksPage> {
               ),
               child: const Icon(
                 Icons.refresh,
-                color: Color(0xFF007A3D),
+                color: Color(0xFF6B584F),
                 size: 24,
               ),
             ),
@@ -188,7 +188,7 @@ class _ManageStocksPageState extends State<ManageStocksPage> {
             ),
           ],
         ),
-        child: Icon(icon, size: 20, color: const Color(0xFF00A352)),
+        child: Icon(icon, size: 20, color: Colors.white),
       ),
     );
   }

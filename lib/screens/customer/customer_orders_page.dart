@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'services/order_service.dart';
-import 'models/order_model.dart';
+import '../../services/order_service.dart';
+import '../../models/order_model.dart';
 import 'customer_order_details_page.dart';
 
 class CustomerOrdersPage extends StatelessWidget {

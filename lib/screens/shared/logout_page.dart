@@ -4,9 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 class LogoutPage extends StatelessWidget {
   const LogoutPage({super.key});
 
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class LogoutPage extends StatelessWidget {
                   style: GoogleFonts.outfit(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF007A3D),
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(height: 40),
@@ -94,7 +94,7 @@ class LogoutPage extends StatelessWidget {
             style: GoogleFonts.outfit(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: isLogout ? const Color(0xFFC62828) : const Color(0xFF007A3D),
+              color: isLogout ? const Color(0xFFC62828) : Colors.white,
             ),
           ),
         ),

@@ -12,9 +12,9 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
 
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   void _handleReset() {
     if (_formKey.currentState!.validate()) {
@@ -41,7 +41,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 alignment: Alignment.centerLeft,
                 child: IconButton(
                   onPressed: () => Navigator.pop(context),
-                  icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF007A3D)),
+                  icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                 ),
               ),
               const SizedBox(height: 20),
@@ -50,7 +50,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 style: GoogleFonts.outfit(
                   fontSize: 40,
                   fontWeight: FontWeight.w600,
-                  color: const Color(0xFF007A3D),
+                  color: Colors.white,
                   letterSpacing: -1,
                 ),
               ),
@@ -84,7 +84,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       keyboardType: TextInputType.emailAddress,
                       style: GoogleFonts.outfit(fontSize: 18),
                       decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.email_outlined, color: Color(0xFF007A3D), size: 22),
+                        prefixIcon: const Icon(Icons.email_outlined, color: Colors.white, size: 22),
                         filled: true,
                         fillColor: cardColor,
                         hintText: 'Enter your email',
@@ -121,7 +121,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                 onPressed: _handleReset,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: brandColor,
-                  foregroundColor: const Color(0xFF007A3D),
+                  foregroundColor: const Color(0xFF6B584F),
                   minimumSize: const Size(double.infinity, 65),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(35),

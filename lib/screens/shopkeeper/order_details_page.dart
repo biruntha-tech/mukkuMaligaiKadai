@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'models/order_model.dart';
-import 'services/order_service.dart';
+import '../../models/order_model.dart';
+import '../../services/order_service.dart';
 
 class OrderDetailsPage extends StatefulWidget {
   final OrderModel order;
@@ -12,9 +12,9 @@ class OrderDetailsPage extends StatefulWidget {
 }
 
 class _OrderDetailsPageState extends State<OrderDetailsPage> {
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   late OrderModel _currentOrder;
   bool _isEditing = false;
@@ -163,7 +163,7 @@ class _OrderDetailsPageState extends State<OrderDetailsPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildActionButton('ACCEPT', brandColor.withOpacity(0.1), const Color(0xFF007A3D), onTap: _onAccept),
+                  _buildActionButton('ACCEPT', brandColor.withOpacity(0.1), Colors.white, onTap: _onAccept),
                   _buildActionButton('REJECT', Colors.red[50]!, Colors.red[700]!, onTap: _onReject),
                   _buildActionButton(
                     _isEditing ? 'SAVE' : 'EDIT',
@@ -278,7 +278,7 @@ class _TableHeaderText extends StatelessWidget {
       style: GoogleFonts.outfit(
         fontSize: 11,
         fontWeight: FontWeight.bold,
-        color: const Color(0xFF007A3D),
+        color: Colors.white,
       ),
     );
   }

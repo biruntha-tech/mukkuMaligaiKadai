@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'models/order_model.dart';
+import '../../models/order_model.dart';
 import 'order_details_page.dart';
 
 class OrdersListPage extends StatelessWidget {
@@ -8,9 +8,9 @@ class OrdersListPage extends StatelessWidget {
   final List<OrderModel> orders;
   const OrdersListPage({super.key, required this.title, required this.orders});
 
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +111,7 @@ class OrdersListPage extends StatelessWidget {
             style: GoogleFonts.outfit(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: isPrice ? const Color(0xFF007A3D) : Colors.black87,
+              color: isPrice ? Colors.white : Colors.black87,
             ),
           ),
         ),

@@ -2,9 +2,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
-import 'main_navigation.dart';
-import 'models/product.dart';
-import 'services/product_service.dart';
+import '../shared/main_navigation.dart';
+import '../../models/product.dart';
+import '../../services/product_service.dart';
 
 class AddProductPage extends StatefulWidget {
   const AddProductPage({super.key});
@@ -22,9 +22,9 @@ class _AddProductPageState extends State<AddProductPage> {
   final _stockController = TextEditingController();
   final _categoryController = TextEditingController();
 
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   Future<void> _showImagePickerOptions() async {
     showModalBottomSheet(
@@ -45,12 +45,12 @@ class _AddProductPageState extends State<AddProductPage> {
                 style: GoogleFonts.outfit(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF007A3D),
+                  color: const Color(0xFF6B584F),
                 ),
               ),
               const SizedBox(height: 20),
               ListTile(
-                leading: const Icon(Icons.photo_library, color: Color(0xFF00A352)),
+                leading: const Icon(Icons.photo_library, color: Colors.white),
                 title: Text('Gallery', style: GoogleFonts.outfit(fontSize: 18)),
                 onTap: () {
                   Navigator.pop(context);
@@ -58,7 +58,7 @@ class _AddProductPageState extends State<AddProductPage> {
                 },
               ),
               ListTile(
-                leading: const Icon(Icons.camera_alt, color: Color(0xFF00A352)),
+                leading: const Icon(Icons.camera_alt, color: Colors.white),
                 title: Text('Camera', style: GoogleFonts.outfit(fontSize: 18)),
                 onTap: () {
                   Navigator.pop(context);
@@ -205,7 +205,7 @@ class _AddProductPageState extends State<AddProductPage> {
                                   child: Icon(
                                     Icons.add_photo_alternate_outlined,
                                     size: 150,
-                                    color: const Color(0xFF00A352).withOpacity(0.3),
+                                    color: const Color(0xFF6B584F).withOpacity(0.3),
                                   ),
                                 )
                               : null,
@@ -235,7 +235,7 @@ class _AddProductPageState extends State<AddProductPage> {
                       ElevatedButton(
                         onPressed: _saveProduct,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC62828),
+                          backgroundColor: Colors.white,
                           foregroundColor: Colors.white,
                           minimumSize: const Size(180, 60),
                           shape: RoundedRectangleBorder(

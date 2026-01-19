@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../account_page.dart';
-import '../services/notification_service.dart';
+import '../shared/account_page.dart';
+import '../../services/notification_service.dart';
 
 class ManagerDashboard extends StatefulWidget {
   final Function(int)? onTabChange;

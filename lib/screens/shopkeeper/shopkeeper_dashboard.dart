@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'add_product_page.dart';
 import 'manage_stocks_page.dart';
-import 'main_navigation.dart';
+import '../shared/main_navigation.dart';
 
 class ShopkeeperDashboard extends StatelessWidget {
   const ShopkeeperDashboard({super.key});
 
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9); // Pale lavender with ~70% opacity
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   @override
   Widget build(BuildContext context) {
@@ -187,7 +187,7 @@ class ShopkeeperDashboard extends StatelessWidget {
             style: GoogleFonts.outfit(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF007A3D),
+              color: Colors.white,
             ),
           ),
         ),
@@ -206,7 +206,7 @@ class ShopkeeperDashboard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 30, color: const Color(0xFF00A352)),
+            Icon(icon, size: 30, color: Colors.white),
             const SizedBox(width: 8),
             Text(
               label,
@@ -227,7 +227,7 @@ class ShopkeeperDashboard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       child: Row(
         children: [
-          const Icon(Icons.assignment, size: 28, color: Color(0xFF00A352)),
+          const Icon(Icons.assignment, size: 28, color: Colors.white),
           const SizedBox(width: 12),
           Expanded(
             child: Text(

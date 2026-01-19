@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'services/product_service.dart';
-import 'models/product.dart';
+import '../../services/product_service.dart';
+import '../../models/product.dart';
 import 'dart:io';
 import 'product_details_page.dart';
-import 'services/wishlist_service.dart';
-import 'main_navigation.dart';
+import '../../services/wishlist_service.dart';
+import '../shared/main_navigation.dart';
 
 class CustomerHomePage extends StatefulWidget {
   const CustomerHomePage({super.key});

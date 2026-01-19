@@ -13,9 +13,9 @@ class AccountPage extends StatefulWidget {
 }
 
 class _AccountPageState extends State<AccountPage> {
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   File? _image;
   final ImagePicker _picker = ImagePicker();
@@ -64,7 +64,7 @@ class _AccountPageState extends State<AccountPage> {
       context,
       MaterialPageRoute(
         builder: (context) => Scaffold(
-          backgroundColor: const Color(0xFFCDB7A6),
+          backgroundColor: Colors.white,
           body: SafeArea(
             child: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -97,12 +97,23 @@ class _AccountPageState extends State<AccountPage> {
                           'PRIVACY AND SECURITY',
                           'TERMS AND CONDITIONS',
                         ]
-                      : [
+                      : widget.role == 'shopkeeper' 
+                        ? [
                           'CHANGE PASSWORD',
                           'UPDATE SHOP LOGO',
                           'MANAGE CATEGORY',
                           'NOTIFICATION PREFERENCE',
                           'UPDATE SHOP STATUS',
+                        ]
+                      : [
+                          'PLATFORM SETTINGS',
+                          'ORDER SETTINGS',
+                          'NOTIFICATION SETTINGS',
+                          'SHOP CONTROL SETTINGS',
+                          'USER MANAGEMENT',
+                          'PAYMENT SETTINGS',
+                          'SECURITY SETTINGS',
+                          'POLICY SETTINGS',
                         ],
                   ),
                   const SizedBox(height: 20),
@@ -175,7 +186,7 @@ class _AccountPageState extends State<AccountPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: (widget.role == 'customer' || widget.role == 'manager') ? const Color(0xFFCDB7A6) : bgColor,
+      backgroundColor: bgColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -204,7 +215,7 @@ class _AccountPageState extends State<AccountPage> {
                         child: Row(
                           children: [
                             GestureDetector(
-                              onTap: () => Navigator.pop(context),
+                              onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false),
                               child: Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: const BoxDecoration(
@@ -233,11 +244,11 @@ class _AccountPageState extends State<AccountPage> {
                   child: Container(
                     padding: const EdgeInsets.all(25),
                     decoration: BoxDecoration(
-                      color: (widget.role == 'customer' || widget.role == 'manager') ? Colors.white.withOpacity(0.6) : cardColor,
+                      color: cardColor,
                       borderRadius: BorderRadius.circular(30),
                       boxShadow: [
                         BoxShadow(
-                          color: (widget.role == 'customer' || widget.role == 'manager') ? Colors.black.withOpacity(0.05) : brandColor.withOpacity(0.1),
+                          color: Colors.black.withOpacity(0.05),
                           blurRadius: 15,
                           offset: const Offset(0, 8),
                         ),
@@ -336,7 +347,7 @@ class _AccountPageState extends State<AccountPage> {
                         style: GoogleFonts.outfit(
                           fontSize: 20,
                           fontWeight: FontWeight.w900,
-                          color: const Color(0xFF007A3D),
+                          color: Colors.white,
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -360,7 +371,7 @@ class _AccountPageState extends State<AccountPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Icon(Icons.phone, size: 16, color: Color(0xFF00A352)),
+                          const Icon(Icons.phone, size: 16, color: Color(0xFF6B584F)),
                           const SizedBox(width: 5),
                           Text(
                             '1234567890',

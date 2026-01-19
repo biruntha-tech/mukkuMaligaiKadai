@@ -19,9 +19,9 @@ class MukkuMaligaiApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF00FF80),
-          primary: const Color(0xFF00FF80),
-          secondary: const Color(0xFF00A352),
+          seedColor: const Color(0xFFCDB7A6),
+          primary: Colors.white,
+          secondary: const Color(0xFFF5F5F5),
         ),
         textTheme: GoogleFonts.outfitTextTheme(),
       ),

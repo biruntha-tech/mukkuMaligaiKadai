@@ -3,14 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'new_orders_page.dart';
 import 'processing_orders_page.dart';
 import 'orders_list_page.dart';
-import 'services/order_service.dart';
+import '../../services/order_service.dart';
 
 class OrdersPage extends StatelessWidget {
   const OrdersPage({super.key});
 
-  static const Color brandColor = Color(0xFF00FF80);
-  static const Color bgColor = Color(0xFFE0FFF0);
-  static const Color cardColor = Color(0xB3E6E1F9);
+  static const Color brandColor = Colors.white;
+  static const Color bgColor = Color(0xFFCDB7A6);
+  static const Color cardColor = Color(0x99FFFFFF); // Colors.white.withOpacity(0.6)
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class OrdersPage extends StatelessWidget {
                       _buildRecentOrderRow('ORDER - 234 - KINGSTON - PACKED'),
                       _buildRecentOrderRow('ORDER - 233 - BLESSY - DELIVERED'),
                       const SizedBox(height: 10),
-                      const Icon(Icons.keyboard_arrow_down, size: 40, color: Color(0xFF00A352)),
+                      const Icon(Icons.keyboard_arrow_down, size: 40, color: Color(0xFF6B584F)),
                     ],
                   ),
                 ),
@@ -142,7 +142,7 @@ class OrdersPage extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 18),
       child: Row(
         children: [
-          const Icon(Icons.assignment_outlined, size: 32, color: Color(0xFF00A352)),
+          const Icon(Icons.assignment_outlined, size: 32, color: Color(0xFF6B584F)),
           const SizedBox(width: 15),
           Expanded(
             child: Text(
