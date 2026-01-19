@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'login_screen.dart';
-import 'signup_screen.dart';
-import 'forgot_password_page.dart';
+import 'screens/auth/login_screen.dart';
+import 'screens/auth/signup_screen.dart';
+import 'screens/auth/forgot_password_page.dart';
 
 void main() {
   runApp(const MukkuMaligaiApp());
