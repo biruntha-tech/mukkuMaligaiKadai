@@ -8,7 +8,8 @@ import '../../services/wishlist_service.dart';
 import '../shared/main_navigation.dart';
 
 class CustomerHomePage extends StatefulWidget {
-  const CustomerHomePage({super.key});
+  final Function(int)? onTabChange;
+  const CustomerHomePage({super.key, this.onTabChange});
 
   @override
   State<CustomerHomePage> createState() => _CustomerHomePageState();
@@ -61,20 +62,27 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
         children: [
           Row(
             children: [
-              Container(
-                width: 50,
-                height: 50,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF4A4A4A),
-                  shape: BoxShape.circle,
-                ),
-                child: Center(
-                  child: Text(
-                    'LOGO',
-                    style: GoogleFonts.outfit(
-                      color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold,
+              GestureDetector(
+                onTap: () {
+                  if (widget.onTabChange != null) {
+                    widget.onTabChange!(4);
+                  }
+                },
+                child: Container(
+                  width: 50,
+                  height: 50,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF4A4A4A),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Center(
+                    child: Text(
+                      'LOGO',
+                      style: GoogleFonts.outfit(
+                        color: Colors.white,
+                        fontSize: 10,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -92,12 +100,9 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MainNavigationScreen(initialIndex: 3, role: 'customer'),
-                ),
-              );
+              if (widget.onTabChange != null) {
+                widget.onTabChange!(2);
+              }
             },
             child: const Icon(Icons.shopping_cart_outlined, size: 30),
           ),

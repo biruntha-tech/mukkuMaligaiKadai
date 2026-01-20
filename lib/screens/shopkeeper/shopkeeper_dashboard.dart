@@ -5,7 +5,8 @@ import 'manage_stocks_page.dart';
 import '../shared/main_navigation.dart';
 
 class ShopkeeperDashboard extends StatelessWidget {
-  const ShopkeeperDashboard({super.key});
+  final Function(int)? onTabChange;
+  const ShopkeeperDashboard({super.key, this.onTabChange});
 
   static const Color brandColor = Colors.white;
   static const Color bgColor = Color(0xFFCDB7A6);
@@ -106,12 +107,9 @@ class ShopkeeperDashboard extends StatelessWidget {
                       Icons.shopping_cart_checkout, 
                       "ORDER\nOVERVIEW",
                       onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const MainNavigationScreen(initialIndex: 2, role: 'shopkeeper'),
-                          ),
-                        );
+                        if (onTabChange != null) {
+                          onTabChange!(2);
+                        }
                       },
                     ),
                     _buildActionButton(Icons.description, "SALES\nREPORT"),

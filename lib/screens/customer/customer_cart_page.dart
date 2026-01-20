@@ -5,7 +5,8 @@ import 'dart:io';
 import 'checkout_pickup_page.dart';
 
 class CustomerCartPage extends StatefulWidget {
-  const CustomerCartPage({super.key});
+  final VoidCallback? onBackToHome;
+  const CustomerCartPage({super.key, this.onBackToHome});
 
   @override
   State<CustomerCartPage> createState() => _CustomerCartPageState();
@@ -30,7 +31,13 @@ class _CustomerCartPageState extends State<CustomerCartPage> {
               child: Row(
                 children: [
                   GestureDetector(
-                    onTap: () => Navigator.pop(context),
+                    onTap: () {
+                      if (widget.onBackToHome != null) {
+                        widget.onBackToHome!();
+                      } else {
+                        Navigator.pop(context);
+                      }
+                    },
                     child: Container(
                       padding: const EdgeInsets.all(8),
                       decoration: const BoxDecoration(

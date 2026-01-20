@@ -3,10 +3,25 @@ import 'package:google_fonts/google_fonts.dart';
 import 'logout_page.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import '../customer/settings/profile_settings_page.dart';
+import '../customer/settings/manage_account_page.dart';
+import '../customer/settings/notification_settings_page.dart';
+import '../customer/settings/order_preferences_page.dart';
+import '../shopkeeper/settings/change_password_page.dart';
+import '../shopkeeper/settings/update_shop_logo_page.dart';
+import '../shopkeeper/settings/manage_categories_page.dart';
+import '../shopkeeper/settings/notification_preferences_page.dart';
+import '../shopkeeper/settings/update_shop_status_page.dart';
+import '../manager/settings/platform_settings_page.dart';
+import '../manager/settings/order_settings_page.dart';
+import '../manager/settings/manager_notification_settings_page.dart';
+import '../manager/settings/shop_control_settings_page.dart';
+import '../manager/settings/user_management_page.dart';
 
 class AccountPage extends StatefulWidget {
   final String role;
-  const AccountPage({super.key, this.role = 'shopkeeper'});
+  final VoidCallback? onBackToHome;
+  const AccountPage({super.key, this.role = 'shopkeeper', this.onBackToHome});
 
   @override
   State<AccountPage> createState() => _AccountPageState();
@@ -147,6 +162,74 @@ class _AccountPageState extends State<AccountPage> {
     );
   }
 
+  void _handleMenuOption(String item) {
+    Widget? page;
+    
+    switch (item) {
+      // Customer settings
+      case 'PROFILE SETTINGS':
+        page = const ProfileSettingsPage();
+        break;
+      case 'MANAGE ACCOUNT':
+        page = const ManageAccountPage();
+        break;
+      case 'NOTIFICATION SETTINGS':
+        page = widget.role == 'manager' 
+            ? const ManagerNotificationSettingsPage() 
+            : const NotificationSettingsPage();
+        break;
+      case 'ORDER PREFERENCES':
+        page = const OrderPreferencesPage();
+        break;
+      
+      // Shopkeeper settings
+      case 'CHANGE PASSWORD':
+        page = const ChangePasswordPage();
+        break;
+      case 'UPDATE SHOP LOGO':
+        page = const UpdateShopLogoPage();
+        break;
+      case 'MANAGE CATEGORY':
+        page = const ManageCategoriesPage();
+        break;
+      case 'NOTIFICATION PREFERENCE':
+        page = const NotificationPreferencesPage();
+        break;
+      case 'UPDATE SHOP STATUS':
+        page = const UpdateShopStatusPage();
+        break;
+      
+      // Manager settings
+      case 'PLATFORM SETTINGS':
+        page = const PlatformSettingsPage();
+        break;
+      case 'ORDER SETTINGS':
+        page = const OrderSettingsPage();
+        break;
+      case 'SHOP CONTROL SETTINGS':
+        page = const ShopControlSettingsPage();
+        break;
+      case 'USER MANAGEMENT':
+        page = const UserManagementPage();
+        break;
+      
+      // Add other cases as needed
+      default:
+        // For items without a dedicated page yet
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Navigating to $item...')),
+        );
+        return;
+    }
+
+    if (page != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => page!),
+      );
+    }
+  }
+
   Widget _buildMenuSection({required String title, required List<String> items}) {
     return Container(
       width: double.infinity,
@@ -168,13 +251,23 @@ class _AccountPageState extends State<AccountPage> {
           ),
           const SizedBox(height: 20),
           ...items.map((item) => Padding(
-            padding: const EdgeInsets.only(bottom: 15, left: 30),
-            child: Text(
-              item,
-              style: GoogleFonts.outfit(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
+            padding: const EdgeInsets.only(bottom: 5, left: 20),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton(
+                onPressed: () => _handleMenuOption(item),
+                style: TextButton.styleFrom(
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                ),
+                child: Text(
+                  item,
+                  style: GoogleFonts.outfit(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
+                ),
               ),
             ),
           )),
@@ -215,7 +308,16 @@ class _AccountPageState extends State<AccountPage> {
                         child: Row(
                           children: [
                             GestureDetector(
-                              onTap: () => Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false),
+                              onTap: () {
+                                if (widget.onBackToHome != null) {
+                                  widget.onBackToHome!();
+                                } else if (Navigator.canPop(context)) {
+                                  Navigator.pop(context);
+                                } else {
+                                  // As a last resort, go to login if no other option
+                                  Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+                                }
+                              },
                               child: Container(
                                 padding: const EdgeInsets.all(8),
                                 decoration: const BoxDecoration(

@@ -30,11 +30,28 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   List<Widget> get _pages {
     if (widget.role == 'customer') {
       return [
-        const CustomerHomePage(),
+        CustomerHomePage(onTabChange: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        }),
         const CustomerProductsPage(),
-        const CustomerCartPage(),
+        CustomerCartPage(
+          onBackToHome: () {
+            setState(() {
+              _selectedIndex = 0;
+            });
+          },
+        ),
         const CustomerOrdersPage(),
-        AccountPage(role: widget.role),
+        AccountPage(
+          role: widget.role,
+          onBackToHome: () {
+            setState(() {
+              _selectedIndex = 0;
+            });
+          },
+        ),
       ];
     }
     if (widget.role == 'manager') {
@@ -51,10 +68,21 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       ];
     }
     return [
-      const ShopkeeperDashboard(),
+      ShopkeeperDashboard(onTabChange: (index) {
+        setState(() {
+          _selectedIndex = index;
+        });
+      }),
       const ProductsPage(),
       const OrdersPage(),
-      AccountPage(role: widget.role),
+      AccountPage(
+        role: widget.role,
+        onBackToHome: () {
+          setState(() {
+            _selectedIndex = 0;
+          });
+        },
+      ),
     ];
   }
 

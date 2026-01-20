@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../shared/main_navigation.dart';
+import 'signup_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,24 +43,8 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(height: 60),
-                Text(
-                  'Login',
-                  style: GoogleFonts.outfit(
-                    fontSize: 56,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                    letterSpacing: -1,
-                  ),
-                ),
-                const SizedBox(height: 30),
-                Text(
-                  'Login as',
-                  style: GoogleFonts.outfit(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                ),
+
+
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -203,7 +188,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     shadowColor: brandColor.withOpacity(0.5),
                   ),
                   child: Text(
-                    'Login as ${_selectedRole == 'manager' ? 'App Manager' : _selectedRole[0].toUpperCase() + _selectedRole.substring(1)}',
+                    'Login',
                     style: GoogleFonts.outfit(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -231,7 +216,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     const Text("Don't have an account? "),
                     GestureDetector(
-                      onTap: () => Navigator.pushNamed(context, '/signup'),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpScreen(role: _selectedRole),
+                        ),
+                      ),
                       child: const Text(
                         "Sign up",
                         style: TextStyle(
